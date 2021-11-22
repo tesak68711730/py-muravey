@@ -15,8 +15,8 @@ class Ant:
         value = self.app.grid[self.y][self.x]
         self.app.grid[self.y][self.x] = not value
 
-        SIZE = self.app.CELL_SIZE
-        rect = self.x * SIZE, self.y * SIZE, SIZE - 1, SIZE - 1
+        size = self.app.CELL_SIZE
+        rect = self.x * size, self.y * size, size - 1, size - 1
         if value:
             pg.draw.rect(self.app.screen, pg.Color('white'), rect)
         else:
@@ -26,6 +26,7 @@ class Ant:
         dx, dy = self.increments[0]
         self.x = (self.x + dx) % self.app.COLS
         self.y = (self.y + dy) % self.app.ROWS
+
 
 class App:
     def __init__(self, WIDTH=1600, HEIGHT=900, CELL_SIZE=8):
